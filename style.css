@@ -1,0 +1,100 @@
+/* Corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Título da página */
+  h1 {
+    color: #3e3e3e;
+    margin-top: 20px;
+    font-size: 36px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Container da lista de Pokémons */
+  .pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  /* Card individual do Pokémon */
+  .pokemon-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 180px;
+    transition: transform 0.3s ease;
+  }
+  
+  .pokemon-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .pokemon-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .pokemon-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+/* Estilo do Tooltip (Janela Flutuante) */
+.tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 220px; /* Largura ajustada para mais conteúdo */
+    font-size: 14px;
+    text-align: left;
+    pointer-events: none; /* Garantir que o tooltip não interfira em outros cliques */
+  }
+  
+  .tooltip h4 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .tooltip p {
+    margin: 5px 0;
+  }
+  
+  .tooltip strong {
+    color: #4CAF50;
+  }
+  
+  
