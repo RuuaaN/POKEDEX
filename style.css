@@ -1,100 +1,195 @@
 /* Corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Título da página */
-  h1 {
-    color: #3e3e3e;
-    margin-top: 20px;
-    font-size: 36px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Container da lista de Pokémons */
-  .pokemon-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 20px;
-  }
-  
-  /* Card individual do Pokémon */
-  .pokemon-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 180px;
-    transition: transform 0.3s ease;
-  }
-  
-  .pokemon-card:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
-  .pokemon-card img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  
-  .pokemon-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Título da página */
+h1 {
+  color: #3e3e3e;
+  margin-top: 20px;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Container da lista de Pokémons */
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Card individual do Pokémon */
+.pokemon-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 180px;
+  height: 240px; /* Garantir que todos os cards tenham o mesmo tamanho */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.pokemon-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  text-transform: capitalize; /* Capitalizar o nome do Pokémon */
+}
+
+/* Botões */
+button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
 /* Estilo do Tooltip (Janela Flutuante) */
 .tooltip {
-    position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    width: 220px; /* Largura ajustada para mais conteúdo */
-    font-size: 14px;
-    text-align: left;
-    pointer-events: none; /* Garantir que o tooltip não interfira em outros cliques */
-  }
-  
-  .tooltip h4 {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .tooltip p {
-    margin: 5px 0;
-  }
-  
-  .tooltip strong {
-    color: #4CAF50;
-  }
-  
-  
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo mais suave */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 240px; /* Largura ajustada para mais conteúdo */
+  font-size: 14px;
+  text-align: left;
+  pointer-events: none; /* Garantir que o tooltip não interfira em outros cliques */
+}
+
+.tooltip h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.tooltip p {
+  margin: 5px 0;
+}
+
+.tooltip strong {
+  color: #4CAF50;
+}
+
+/* Container de tipos (caixas abaixo do nome e imagem) */
+.types-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Espaçamento entre as caixas */
+}
+
+/* Caixa de tipo de Pokémon */
+.pokemon-type {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize; /* Capitaliza a primeira letra */
+}
+
+/* Tipos de Pokémon com suas cores associadas */
+.fire {
+  background-color: #f7a7a6;
+}
+
+.water {
+  background-color: #2a8bb8;
+}
+
+.electric {
+  background-color: #ffeb3b;
+  color: #000; /* Contraste para o texto */
+}
+
+.grass {
+  background-color: #66bb6a;
+}
+
+.ground {
+  background-color: #a56e3b;
+}
+
+.rock {
+  background-color: #6b6b6b;
+}
+
+.fairy {
+  background-color: #f8bbd0;
+}
+
+.poison {
+  background-color: #9c4f96;
+}
+
+.bug {
+  background-color: #99cc33;
+}
+
+.normal {
+  background-color: #ffffff;
+  color: #333; /* Ajuste da cor do texto para contraste */
+}
+
+.psychic {
+  background-color: #f06292;
+}
+
+.fighting {
+  background-color: #d32f2f;
+}
+
+.ice {
+  background-color: #80deea;
+}
+
+.dragon {
+  background-color: #ff5722;
+}
+
+.ghost {
+  background-color: #9e9e9e;
+}
+
+.steel {
+  background-color: #607d8b;
+}
+
+.dark {
+  background-color: #424242;
+}
+
+.flying {
+  background-color: #03a9f4;
+}
