@@ -1,11 +1,22 @@
+/* Estilo para o logo da Pokédex */
+#pokedex-logo {
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+  height: auto;
+}
+
 /* Corpo da página */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f7f7f7;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-image: url('images/background2.jpg');
+  background-size: auto;
+  background-position: center;
+  background-attachment: scroll;
 }
 
 /* Título da página */
@@ -18,34 +29,42 @@ h1 {
 
 /* Container da lista de Pokémons */
 .pokemon-list {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
   gap: 20px;
+  align-items: flex-start;
 }
 
 /* Card individual do Pokémon */
 .pokemon-card {
+  width: 180px;
+  height: 240px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  width: 180px;
-  height: 240px; /* Garantir que todos os cards tenham o mesmo tamanho */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
+/* Hover - Aumentar o card e mostrar os stats */
 .pokemon-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  z-index: 10; /* Faz o card flutuar sobre os outros */
+  height: 260px; /* Aumenta a altura do card para incluir os stats */
 }
 
+/* Imagem do Pokémon */
 .pokemon-card img {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   margin-bottom: 10px;
 }
 
@@ -53,60 +72,15 @@ h1 {
   font-size: 18px;
   margin-bottom: 10px;
   color: #333;
-  text-transform: capitalize; /* Capitalizar o nome do Pokémon */
-}
-
-/* Botões */
-button {
-  padding: 8px 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Estilo do Tooltip (Janela Flutuante) */
-.tooltip {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.9); /* Fundo mais suave */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  width: 240px; /* Largura ajustada para mais conteúdo */
-  font-size: 14px;
-  text-align: left;
-  pointer-events: none; /* Garantir que o tooltip não interfira em outros cliques */
-}
-
-.tooltip h4 {
-  margin: 0;
-  font-size: 16px;
-  color: #333;
-}
-
-.tooltip p {
-  margin: 5px 0;
-}
-
-.tooltip strong {
-  color: #4CAF50;
+  text-transform: capitalize;
 }
 
 /* Container de tipos (caixas abaixo do nome e imagem) */
 .types-container {
-  margin-top: 10px;
+  margin-top: -20px;
   display: flex;
   justify-content: center;
-  gap: 8px; /* Espaçamento entre as caixas */
+  gap: 8px;
 }
 
 /* Caixa de tipo de Pokémon */
@@ -116,7 +90,66 @@ button:hover {
   font-size: 12px;
   font-weight: bold;
   color: #fff;
-  text-transform: capitalize; /* Capitaliza a primeira letra */
+  text-transform: capitalize;
+}
+
+/* Contêiner para as barras de stats */
+.stats-container {
+  margin-top: 10px;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 12px;
+  margin-left: -5px;
+}
+
+/* Mostrar stats ao passar o mouse */
+.pokemon-card:hover .stats-container {
+  opacity: 1;
+}
+
+/* Organiza os itens dentro da stats-container em colunas */
+.stat-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Barra de stats (HP, Attack, Defense, Speed) */
+.stat-bar {
+  height: 4px;
+  background-color: rgb(187, 10, 10);
+  border-radius: 4px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Progresso da barra */
+.stat-bar span {
+  display: block;
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 4px;
+}
+
+/* Organiza os itens dentro da stats-container em colunas */
+.stat-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+}
+/* Texto ao lado da barra */
+.stat-row p {
+  margin: 0;
+  font-size: 12px;
+  color: #333;
+  flex-shrink: 0;
 }
 
 /* Tipos de Pokémon com suas cores associadas */
@@ -130,7 +163,7 @@ button:hover {
 
 .electric {
   background-color: #ffeb3b;
-  color: #000; /* Contraste para o texto */
+  color: #000;
 }
 
 .grass {
@@ -159,7 +192,7 @@ button:hover {
 
 .normal {
   background-color: #ffffff;
-  color: #333; /* Ajuste da cor do texto para contraste */
+  color: #333;
 }
 
 .psychic {
@@ -192,4 +225,29 @@ button:hover {
 
 .flying {
   background-color: #03a9f4;
+}
+
+/* Estilizando a barra de pesquisa */
+#search {
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Efeito de foco quando o usuário clica ou foca na barra */
+#search:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.6);
+}
+
+/* Estilo do ícone de pesquisa (opcional) */
+#search::placeholder {
+  color: #888;
+  font-style: italic;
 }
