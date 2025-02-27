@@ -91,17 +91,44 @@ function createPokemonCard(pokemon) {
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${pokemon.name}">
     <div class="types-container"></div>
     <div class="stats-container">
+
       <div class="stat-row">
+
         <p>HP: ${hp}</p>
-        <div class="stat-bar" style="width: ${hpPercentage}%; background-color: green;"></div>
+
+        <div class="stat-bar">
+        
+            <span class="stat" style="width: ${hpPercentage}%;"></span>
+
+        </div>
+
         <p>Speed: ${speed}</p>
-        <div class="stat-bar" style="width: ${speedPercentage}%; background-color: green;"></div>
+
+        <div class="stat-bar">
+
+           <span class="stat" style="width: ${speedPercentage}%;"></span>
+
+        </div>
+
       </div>
+
       <div class="stat-row">
+
         <p>Attack: ${attack}</p>
-        <div class="stat-bar" style="width: ${attackPercentage}%; background-color: green;"></div>
+
+        <div class="stat-bar">
+
+            <span class="stat" style="width: ${attackPercentage}%;"></span>
+
+        </div>
+
         <p>Defense: ${defense}</p>
-        <div class="stat-bar" style="width: ${defensePercentage}%; background-color: green;"></div>
+
+        <div class="stat-bar">
+
+          <span class="stat" style="width: ${defensePercentage}%;"></span>
+
+        </div>
       </div>
     </div>
   `;
