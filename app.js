@@ -25,7 +25,7 @@ const typeColors = {
   dragon: "#ff7c70",
   ghost: "#a9a9a9",
   steel: "#8c8c8c",
-  dark: "#545454",
+  dark: "#373737",
   flying: "#ecf6fc"
 };
 
@@ -72,6 +72,26 @@ function createPokemonCard(pokemon) {
   const cardColor = getTypeColor(types);
   pokemonCard.style.backgroundColor = cardColor;
 
+  // Se for do tipo Dark, adiciona a classe .dark ao card
+  if (types.includes("dark")) {
+    pokemonCard.classList.add("dark");
+  }
+
+  // Criando o ID do Pokémon
+  const pokemonIdElement = document.createElement("h3");
+  pokemonIdElement.textContent = `#${pokemonId.toString().padStart(4, '0')}`;
+  pokemonIdElement.classList.add("pokemon-id");
+
+  // Criando o nome do Pokémon
+  const pokemonNameElement = document.createElement("h3");
+  pokemonNameElement.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
+  // Adiciona os elementos ao card
+  pokemonCard.appendChild(pokemonIdElement);
+  pokemonCard.appendChild(pokemonNameElement);
+
+  pokemonList.appendChild(pokemonCard);
+
   // Definir os valores de HP, Attack, Defense e Speed
   const hp = pokemon.stats.find(stat => stat.stat.name === "hp").base_stat;
   const attack = pokemon.stats.find(stat => stat.stat.name === "attack").base_stat;
@@ -87,6 +107,7 @@ function createPokemonCard(pokemon) {
 
   // Criação do conteúdo do card
   pokemonCard.innerHTML = `
+    <h3 class="pokemon-id">#${pokemonId.toString().padStart(4, '0')}</h3>
     <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${pokemon.name}">
     <div class="types-container"></div>
