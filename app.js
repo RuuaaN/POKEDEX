@@ -181,3 +181,35 @@ function getTypeColor(types) {
 
 // Chama a função para buscar os Pokémons
 fetchPokemons();
+
+// Função para criar os filtros de tipo
+function createTypeFilters() {
+  const typeFiltersContainer = document.getElementById("type-filters");
+
+  if (!typeFiltersContainer) {
+      console.error("Erro: Elemento #type-filters não encontrado!");
+      return;
+  }
+
+  Object.keys(typeColors).forEach(type => {
+      const button = document.createElement("button");
+      button.classList.add("type-filter", type); // Adiciona a classe do tipo
+      button.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+
+      button.addEventListener("click", () => filterByType(type));
+
+      typeFiltersContainer.appendChild(button);
+  });
+}
+
+// Função para filtrar Pokémons por tipo
+function filterByType(type) {
+  const filteredPokemons = allPokemons.filter(pokemon =>
+      pokemon.types.some(t => t.type.name === type)
+  );
+  displayPokemons(filteredPokemons);
+}
+
+// Criar os botões de filtro ao carregar a página
+createTypeFilters();
+

@@ -273,3 +273,39 @@ body::before {
 .dark h3 {
   color: white !important;
 }
+
+/* Container dos filtros */
+.type-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Botões de filtro de tipo */
+.type-filter {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.type-filter:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Ajusta a cor do texto dentro da caixa de tipagem do tipo Normal */
+.pokemon-type.normal {
+  color: black !important;
+}
+
+/* Ajusta a cor do texto dentro do botão de filtro do tipo Normal */
+.type-filter.normal {
+  color: black !important;
+}
