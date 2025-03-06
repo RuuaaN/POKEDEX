@@ -280,8 +280,15 @@ body::before {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 10px;
+  max-width: 600px; 
+  margin: 10px auto; 
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.7); 
+  border-radius: 15px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(8px); 
 }
+
 
 /* Botões de filtro de tipo */
 .type-filter {
@@ -293,6 +300,9 @@ body::before {
   color: white;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.3s ease;
+  text-transform: capitalize;
+  flex: 1 1 calc(100% / 9 - 10px);
+  text-align: center;
 }
 
 .type-filter:hover {
@@ -300,12 +310,12 @@ body::before {
   opacity: 0.9;
 }
 
-/* Ajusta a cor do texto dentro da caixa de tipagem do tipo Normal */
-.pokemon-type.normal {
+/* Ajusta a cor do texto dentro do botão de filtro do tipo Normal */
+.type-filter.normal {
   color: black !important;
 }
 
 /* Ajusta a cor do texto dentro do botão de filtro do tipo Normal */
-.type-filter.normal {
+.type-filter.electric {
   color: black !important;
 }
