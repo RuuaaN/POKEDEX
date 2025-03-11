@@ -53,7 +53,7 @@ body::before {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  padding: 15px 15px 40px; /* Adiciona mais espaço na parte inferior */
+  padding: 15px 15px 40px;
   text-align: center;
   overflow: hidden;
 }
@@ -70,7 +70,7 @@ body::before {
 /* Imagem do Pokémon */
 .pokemon-card img {
   max-width: 100%;
-  max-height: 100px; /* Limita a altura da imagem */
+  max-height: 100px;
   height: auto;
   object-fit: contain;
   margin-bottom: 0px;
@@ -85,15 +85,15 @@ body::before {
 
 /* Container de tipos (caixas abaixo do nome e imagem) */
 .types-container {
-  position: absolute; /* Posiciona o contêiner de tipos de forma fixa */
-  bottom: 10px; /* Distância do fundo do card */
-  left: 50%; /* Centraliza horizontalmente */
-  transform: translateX(-50%); /* Ajusta a centralização */
+  position: absolute;
+  bottom: 10px; 
+  left: 50%; 
+  transform: translateX(-50%); 
   display: flex;
   justify-content: center;
   gap: 8px;
-  width: 100%; /* Ocupa a largura total do card */
-  padding: 0 10px; /* Adiciona um pouco de espaço nas laterais */
+  width: 100%; 
+  padding: 0 10px; 
 }
 
 /* Caixa de tipo de Pokémon */
