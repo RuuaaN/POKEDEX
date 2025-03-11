@@ -107,11 +107,11 @@ function createPokemonCard(pokemon) {
 
   // Criação do conteúdo do card
   pokemonCard.innerHTML = `
-    <h3 class="pokemon-id">#${pokemonId.toString().padStart(4, '0')}</h3>
-    <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${pokemon.name}">
-    <div class="types-container"></div>
-    <div class="stats-container">
+  <h3 class="pokemon-id">#${pokemonId.toString().padStart(4, '0')}</h3>
+  <h3>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
+  <img src="images/gifs/${pokemonId.toString().padStart(4, '0')}.gif" alt="${pokemon.name}">
+  <div class="types-container"></div>
+  <div class="stats-container">
 
       <div class="stat-row">
 
